@@ -1,0 +1,9 @@
+{
+  "name": "moneypilot",
+  "version": "0.1.0",
+  "description": "MoneyPilot – deutschsprachiger Finanzplaner (Prototyp)",
+  "private": true,
+  "scripts": {
+    "test": "node tests/calculations.test.js"
+  }
+}
