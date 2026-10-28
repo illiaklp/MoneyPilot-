@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoneyPilot – dein Finanzplaner</title>
   <meta name="description" content="MoneyPilot: Einnahmen, Ausgaben, Budget und Sparziele im Blick.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e4d3a'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23f7f3ea' font-family='Arial' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0b2e22">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b2e22'/%3E%3Ctext x='16' y='22' font-size='17' text-anchor='middle' fill='%23d4b67e' font-family='Georgia,serif'%3EM%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,14 +16,32 @@
     <div class="container header-inner">
       <a class="brand" href="#uebersicht" aria-label="MoneyPilot – zur Übersicht">
         <span class="brand-mark">M</span>
-        <span class="brand-name">MoneyPilot</span>
+        <span class="brand-text">
+          <span class="brand-name">MoneyPilot</span>
+          <span class="brand-tagline">Private Finanzplanung</span>
+        </span>
       </a>
       <nav class="main-nav" aria-label="Hauptnavigation">
-        <a href="#uebersicht" data-page="uebersicht">Übersicht</a>
-        <a href="#buchungen" data-page="buchungen">Buchungen</a>
-        <a href="#sparziele" data-page="sparziele">Sparziele</a>
-        <a href="#statistik" data-page="statistik">Statistik</a>
-        <a href="#spartipps" data-page="spartipps">Spartipps</a>
+        <a href="#uebersicht" data-page="uebersicht">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+          <span>Übersicht</span>
+        </a>
+        <a href="#buchungen" data-page="buchungen">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10M7 9h10M7 14h6M5 2h14a1 1 0 0 1 1 1v18l-3-2-3 2-2-1.5L10 21l-3-2-3 2V3a1 1 0 0 1 1-1z"/></svg>
+          <span>Buchungen</span>
+        </a>
+        <a href="#sparziele" data-page="sparziele">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+          <span>Sparziele</span>
+        </a>
+        <a href="#statistik" data-page="statistik">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <span>Statistik</span>
+        </a>
+        <a href="#spartipps" data-page="spartipps">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.2 1 2V16h5v-.1c0-.8.4-1.6 1-2A6 6 0 0 0 12 3z"/></svg>
+          <span>Spartipps</span>
+        </a>
       </nav>
     </div>
   </header>

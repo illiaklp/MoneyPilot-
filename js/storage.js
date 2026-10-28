@@ -17,12 +17,12 @@
       { id: 'Sonstiges', icon: '✨' }
     ],
     expense: [
-      { id: 'Wohnen', icon: '🏠', color: '#2a78d6' },
-      { id: 'Lebensmittel', icon: '🛒', color: '#eb6834' },
-      { id: 'Mobilität', icon: '🚆', color: '#1baf7a' },
-      { id: 'Freizeit', icon: '🎬', color: '#eda100' },
-      { id: 'Gesundheit', icon: '🩺', color: '#e87ba4' },
-      { id: 'Sonstiges', icon: '📦', color: '#6250d6' }
+      { id: 'Wohnen', icon: '🏠', color: '#3a6ea5' },
+      { id: 'Lebensmittel', icon: '🛒', color: '#c8742f' },
+      { id: 'Mobilität', icon: '🚆', color: '#219a7f' },
+      { id: 'Freizeit', icon: '🎬', color: '#d1a12a' },
+      { id: 'Gesundheit', icon: '🩺', color: '#c05a86' },
+      { id: 'Sonstiges', icon: '📦', color: '#6e5cc4' }
     ]
   };
 

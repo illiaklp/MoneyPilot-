@@ -90,11 +90,12 @@
 
   /* ---------- Übersicht ---------- */
 
-  function kpiCard(label, value, note, modifier) {
+  function kpiCard(label, value, note, modifier, extra) {
     return '<div class="kpi ' + (modifier || '') + '">' +
       '<span class="kpi-label">' + label + '</span>' +
       '<span class="kpi-value">' + value + '</span>' +
       (note ? '<span class="kpi-note">' + note + '</span>' : '') +
+      (extra || '') +
       '</div>';
   }
 
@@ -116,8 +117,12 @@
       budgetNote = 'von ' + C.formatEuro(summary.budget) + ' noch verfügbar';
     }
 
+    // Schmaler Fortschrittsbalken in der Budget-Karte (nur Darstellung)
+    var heroBar = summary.budget === null ? '' :
+      '<span class="kpi-meter" aria-hidden="true"><span style="width:' + Math.min(100, summary.budgetUsedPercent) + '%"></span></span>';
+
     $('kpis').innerHTML =
-      kpiCard('Verfügbares Budget', budgetValue, budgetNote, budgetModifier) +
+      kpiCard('Verfügbares Budget', budgetValue, budgetNote, budgetModifier + ' kpi-hero', heroBar) +
       kpiCard('Einnahmen', C.formatEuro(summary.income), 'in diesem Monat') +
       kpiCard('Ausgaben', C.formatEuro(summary.expenses), 'in diesem Monat') +
       kpiCard('Saldo', signedEuro(summary.balance), 'Einnahmen minus Ausgaben');
@@ -549,6 +554,18 @@
   document.querySelectorAll('input[name="type"]').forEach(function (r) { r.addEventListener('change', fillCategorySelect); });
 
   window.addEventListener('hashchange', function () { readPageFromHash(); render(); window.scrollTo(0, 0); });
+
+  // Diagramme bei geänderter Fenstergröße neu zeichnen (z. B. iPad drehen)
+  var resizeTimer = null;
+  var lastWidth = window.innerWidth;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (ui.page === 'statistik') renderStatistics();
+    }, 150);
+  });
 
   readPageFromHash();
   fillCategorySelect();

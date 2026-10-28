@@ -8,7 +8,7 @@
   'use strict';
 
   var SVG_NS = 'http://www.w3.org/2000/svg';
-  var SERIES = { income: '#1f7a4f', expenses: '#d9822b' };
+  var SERIES = { income: '#17744f', expenses: '#b8862f' };
 
   function el(name, attrs) {
     var node = document.createElementNS(SVG_NS, name);
@@ -63,7 +63,7 @@
       return;
     }
 
-    var size = 200, radius = 78, stroke = 26, gap = 2;
+    var size = 200, radius = 80, stroke = 18, gap = 2;
     var circumference = 2 * Math.PI * radius;
     var svg = el('svg', {
       viewBox: '0 0 ' + size + ' ' + size, class: 'donut',
@@ -141,8 +141,11 @@
   function incomeExpenseBars(container, series) {
     var C = global.MPCalc;
     container.innerHTML = '';
-    var width = 640, height = 260;
-    var pad = { top: 16, right: 8, bottom: 32, left: 64 };
+    // Das Diagramm wird in der echten Breite gezeichnet, damit die Schrift
+    // auf Handy und Desktop gleich groß und gut lesbar bleibt.
+    var width = Math.max(300, Math.round(container.clientWidth || 640));
+    var height = width < 560 ? 240 : 300;
+    var pad = { top: 16, right: 8, bottom: 34, left: 64 };
     var innerW = width - pad.left - pad.right;
     var innerH = height - pad.top - pad.bottom;
     var maxValue = niceMax(Math.max.apply(null, series.map(function (m) { return Math.max(m.income, m.expenses); })));
@@ -164,7 +167,7 @@
     }
 
     var groupW = innerW / series.length;
-    var barW = Math.min(28, groupW * 0.3);
+    var barW = Math.min(26, groupW * 0.28);
     series.forEach(function (m, i) {
       var cx = pad.left + groupW * i + groupW / 2;
       var g = el('g', { class: 'bar-group' });
